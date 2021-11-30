@@ -69,8 +69,6 @@ def CDMnonlinInitValue(Fext,Pn,h,omega,xi,m,
                        u0,v0,a0,Fint,
                        t_start = -1, u_plastic = 0):
     """
-    
-
     Parameters
     ----------
     Fext : NDARRAY

@@ -59,12 +59,20 @@ t_plot = np.append(t,t_f+h)
 
 # external force array
 # "blast"
-f_y = np.array([0.0,25.00,0.000,-5.00,0.000,0.0])
-f_x = np.array([0.0,0.010,0.030,0.035,0.040,t_f])
-# "fragment"
-f2_y = np.array([0.000,030.0,0.000]) # note that this is *added* to f
-f2_x = np.array([0.013,0.015,0.017])
+f_y = np.array([0.0,25.00,0.000,-5.00,0.000,0.0]) #Load
+f_x = np.array([0.0,0.010,0.030,0.035,0.040,t_f]) #Time
+# "fragment" -- Note that this is added to f
+f2_y = np.array([0.000,030.0,0.000]) # Load
+f2_x = np.array([0.013,0.015,0.017]) # time
 F_ext = np.interp(t,f_x,f_y) + np.interp(t,f2_x,f2_y)
+
+# Plot load vs time
+fig0, ax0 = plt.subplots()
+ax0.plot(t[:500],F_ext[:500])
+ax0.set_title('Load vs Time')
+ax0.set_ylabel('Load')
+ax0.set_xlabel('Time')
+ax0.grid()
 
 # output variables
 # undamaged 
@@ -103,7 +111,7 @@ fig.suptitle('Undamaged CDM Example')
 #so want to run CDMNonlin up to t_d, then extract x,v,a(,F_int?). 
 print("Running CDM Nonlin with damage evolution:")
 # now assume damage occurs at t = 0.017s
-t_damage = 0.0170
+t_damage = 0.0150
 idx_damage = int(t_damage / h)
 print("Damage / restart occurs at t = {}".format(t_damage))
 print("Running until restart time. . .")
