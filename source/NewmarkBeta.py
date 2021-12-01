@@ -40,14 +40,14 @@ def NewmarkBeta(Fext, Pn, m, k, omega, xi, gamma, beta, delta_t):
     return [u,v,a]
     
 # Test case
-F_ext = np.zeros(500)
+# F_ext = np.zeros(500)
 
-for idx in range(F_ext.size):
-    if idx < int(F_ext.size/20):
-        F_ext[idx] += 0.5
-[u,v,a] = NewmarkBeta(F_ext,0,10,40,2,0.05,0.5,1/4,0.01)
-fig, ax = plt.subplots(4,1,constrained_layout = True)
-ax[0].plot(F_ext)
-ax[1].plot(u)
-ax[2].plot(v)
-ax[3].plot(a)
+# for idx in range(F_ext.size):
+#     if idx < int(F_ext.size/20):
+#         F_ext[idx] += 0.5
+# [u,v,a] = NewmarkBeta(F_ext,0,10,40,2,0.05,0.5,1/4,0.01)
+# fig, ax = plt.subplots(4,1,constrained_layout = True)
+# ax[0].plot(F_ext)
+# ax[1].plot(u)
+# ax[2].plot(v)
+# ax[3].plot(a)
